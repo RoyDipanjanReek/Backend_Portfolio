@@ -1,37 +1,39 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, GraduationCap, Car } from "lucide-react"
+import { Github, Car, ExternalLink } from "lucide-react"
 
 const projects = [
   {
-    title: "Learning Management System",
-    description: "A production-ready, secure, and scalable backend for a Learning Management System (LMS). This project is built with clean architecture, strong security practices, and real-world backend standards in mind.",
-    techStack: ["Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "Cloudinary", "Multer", "Morgan", "Stripe"],
+    title: "CopyBook LM",
+    description: "A Retrieval-Augmented Generation (RAG) powered note-taking and knowledge assistant inspired by Google NotebookLM Built with Next.js, LangChain, OpenAI, and Clerk — this app allows users to upload documents, query their own data, and get context-aware AI answers.",
+    techStack: ["Node.js", "MongoDB Vector DB", "Mongoose", "LangChain", "Next.js", "Clerk", "OpenAI", "MongoDB", "Tailwind CSS","Shadcn UI"],
     features: [
-      "Clean Architecture",
-      "JWT Authentication",
-      "Media Storage",
-      "File Uploads",
-      "Security Best Practices",
-      "Payment Integration",
-      "Rate limiting"
+      "Document Upload",
+      "RAG Integration",
+      "AI Q&A System",
+      "Vector Search",
+      "Knowledge Base",
+      "Context-aware Responses"
     ],
-    icon: GraduationCap,
-    github: "https://github.com/RoyDipanjanReek/Learning_Management_System"
+    icon: "/copybooklm.png",
+    github: "https://github.com/RoyDipanjanReek/NoteBook_LM",
+    liveLink: "https://copybooklm.vercel.app/"
   },
   {
-    title: "Ride-Hailing System",
-    description: "A comprehensive backend system for ride-hailing services. Built with scalability and performance in mind, featuring real-time capabilities and robust API design for managing drivers, riders, and trips.",
-    techStack: ["Node.js", "Express.js", "MongoDB", "Socket.io", "Redis", "JWT"],
+    title: "My_Memory",
+    description: "A production-ready template manager built with Next.js App Router, MongoDB, Mongoose, and Tailwind CSS.",
+    techStack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Tailwind CSS"],
     features: [
-      "Real-time Updates",
-      "Geolocation Services",
-      "Driver Management",
-      "Trip Tracking",
-      "Location-based calculation"
+      "Create & Manage Templates",
+      "Sidebar History Panel",
+      "Keyword Search",
+      "Category & Tag Filtering",
+      "One-click Copy",
+      "Service Layer Architecture"
     ],
-    icon: Car,
-    github: "https://github.com/RoyDipanjanReek/Ride-Hailing-System"
+    icon: "/My_Memory.png",
+    github: "https://github.com/RoyDipanjanReek/My_Memory",
+    liveLink: "https://my-memory-brown.vercel.app  "
   }
 ]
 
@@ -52,8 +54,8 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <Card key={project.title} className="overflow-hidden">
               <div className="flex flex-col md:flex-row">
-                <div className="flex shrink-0 items-center justify-center bg-secondary/50 p-8 md:w-48">
-                  <project.icon className="h-16 w-16 text-muted-foreground" />
+                <div className="flex shrink-0 items-center justify-center bg-secondary/50 md:w-96 h-64 md:h-auto">
+                  <img src={project.icon} alt={project.title} className="h-auto w-full object-cover" />
                 </div>
                 
                 <div className="flex-1">
@@ -65,15 +67,28 @@ export function ProjectsSection() {
                           {project.description}
                         </CardDescription>
                       </div>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
-                        aria-label={`View ${project.title} on GitHub`}
-                      >
-                        <Github className="h-5 w-5" />
-                      </a>
+                      <div className="flex shrink-0 gap-3">
+                        {project.liveLink && (
+                          <a
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                            aria-label={`View ${project.title} live`}
+                          >
+                            <ExternalLink className="h-5 w-5" />
+                          </a>
+                        )}
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground transition-colors hover:text-foreground"
+                          aria-label={`View ${project.title} on GitHub`}
+                        >
+                          <Github className="h-5 w-5" />
+                        </a>
+                      </div>
                     </div>
                   </CardHeader>
                   
