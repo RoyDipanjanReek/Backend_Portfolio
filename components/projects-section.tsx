@@ -15,7 +15,7 @@ const projects = [
       "Knowledge Base",
       "Context-aware Responses"
     ],
-    icon: "/Copybooklm.png",
+    icon: "/CopyBookLM.png",
     github: "https://github.com/RoyDipanjanReek/NoteBook_LM",
     liveLink: "https://copybooklm.vercel.app/"
   },
